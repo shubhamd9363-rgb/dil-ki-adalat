@@ -2,6 +2,7 @@
   const $ = (id) => document.getElementById(id);
   const fields = ["day","quality","case-title-input","original-message","court-question","aadi-response","final-observation","next-hearing","published"];
   let db = null, auth = null, records = [], selectedId = null, toastTimer;
+  let currentImageData = "", imageProcessing = Promise.resolve();
 
   function configured() {
     const c = window.DIL_FIREBASE_CONFIG || {};
@@ -26,6 +27,8 @@
       response: $("aadi-response").value,
       finalObservation: $("final-observation").value.trim(),
       nextHearing: $("next-hearing").value.trim(),
+      imageData: currentImageData || "",
+      imageAlt: $("case-title-input").value.trim(),
       published: typeof publishedOverride === "boolean" ? publishedOverride : $("published").checked,
       updatedAt: firebase.firestore.FieldValue.serverTimestamp()
     };
@@ -44,6 +47,11 @@
     $("aadi-response").value = c?.response || "";
     $("final-observation").value = c?.finalObservation || "";
     $("next-hearing").value = c?.nextHearing || "";
+    currentImageData = c?.imageData || "";
+    $("chapter-image-file").value = "";
+    $("image-upload-status").textContent = currentImageData ? "An image is saved with this chapter. Choose another image to replace it." : "No image selected. Existing image is kept when editing unless you replace or remove it.";
+    $("image-preview-wrap").classList.toggle("hidden", !currentImageData);
+    if (currentImageData) $("chapter-image-preview").src = currentImageData;
     $("published").checked = Boolean(c?.published);
     setError("");
     renderAdminList();
@@ -79,6 +87,7 @@
   }
   async function save(publishOverride) {
     setError("");
+    try { await imageProcessing; } catch (e) { setError("The image could not be processed. Please choose another image."); return; }
     const data = getFormData(publishOverride);
     if (!data.day || !data.quality || !data.caseTitle || !data.originalMessage.trim() || !data.courtQuestion || !data.response.trim() || !data.finalObservation || !data.nextHearing) {
       setError("Please complete every field before saving. You can save this as a draft by leaving Publish unchecked.");
@@ -121,6 +130,64 @@
       setError("Delete failed. Check your Firestore security rules.");
     }
   }
+
+  async function compressImage(file) {
+    if (!file || !file.type.startsWith("image/")) throw new Error("Please choose an image file.");
+    const sourceUrl = await new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+    const image = await new Promise((resolve, reject) => {
+      const img = new Image(); img.onload = () => resolve(img); img.onerror = reject; img.src = sourceUrl;
+    });
+    const maxWidth = 1500, maxHeight = 950;
+    const scale = Math.min(1, maxWidth / image.width, maxHeight / image.height);
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.max(1, Math.round(image.width * scale));
+    canvas.height = Math.max(1, Math.round(image.height * scale));
+    const ctx = canvas.getContext("2d", { alpha: false });
+    ctx.fillStyle = "#f8f4ed"; ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+    let quality = 0.78;
+    let result = canvas.toDataURL("image/jpeg", quality);
+    while (result.length > 720000 && quality > 0.42) {
+      quality -= 0.08;
+      result = canvas.toDataURL("image/jpeg", quality);
+    }
+    if (result.length > 720000) {
+      const shrink = 0.78;
+      canvas.width = Math.max(1, Math.round(canvas.width * shrink));
+      canvas.height = Math.max(1, Math.round(canvas.height * shrink));
+      ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+      result = canvas.toDataURL("image/jpeg", 0.48);
+    }
+    if (result.length > 850000) throw new Error("This image is too large to store safely. Please choose a smaller image.");
+    return result;
+  }
+  $("chapter-image-file").addEventListener("change", (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    $("image-upload-status").textContent = "Preparing your image…";
+    imageProcessing = compressImage(file).then((data) => {
+      currentImageData = data;
+      $("chapter-image-preview").src = data;
+      $("image-preview-wrap").classList.remove("hidden");
+      $("image-upload-status").textContent = `Image ready · landscape-friendly · ${(data.length / 1024).toFixed(0)} KB after compression.`;
+    }).catch((err) => {
+      console.error(err);
+      $("image-upload-status").textContent = err.message || "Could not process this image.";
+      currentImageData = "";
+      setError(err.message || "Could not process this image.");
+    });
+  });
+  $("remove-chapter-image").addEventListener("click", () => {
+    currentImageData = "";
+    $("chapter-image-file").value = "";
+    $("image-preview-wrap").classList.add("hidden");
+    $("image-upload-status").textContent = "Image removed. Save the chapter to publish this change.";
+  });
 
   $("login-form").addEventListener("submit", async (e) => {
     e.preventDefault(); setLoginError("");
