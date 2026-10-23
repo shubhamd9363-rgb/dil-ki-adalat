@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#702b3a">
+  <title>Admin Studio — Dil Ki Adalat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-body">
+  <div class="topline"></div>
+  <header class="site-header admin-header">
+    <a class="brand" href="./">
+      <span class="brand-mark">A <span>&</span> G</span>
+      <span class="brand-copy"><strong>DIL KI ADALAT</strong><small>PRIVATE ADMIN STUDIO</small></span>
+    </a>
+    <a class="header-note" href="./">View public website ↗</a>
+  </header>
+
+  <main class="admin-main">
+    <section id="login-panel" class="login-panel">
+      <p class="eyebrow eyebrow-left">PRIVATE ACCESS · AADI ONLY</p>
+      <h1>Your <em>case files.</em></h1>
+      <p class="admin-intro">Log in to add Geet's messages, write your replies, and decide when each chapter goes live.</p>
+      <form id="login-form" class="admin-form login-form">
+        <label>Email address<input id="login-email" type="email" autocomplete="username" required placeholder="Your admin email"></label>
+        <label>Password<input id="login-password" type="password" autocomplete="current-password" required placeholder="Your password"></label>
+        <button class="primary-button full-button" type="submit">Log in to admin studio <span>→</span></button>
+        <p id="login-error" class="form-error" role="alert"></p>
+      </form>
+      <p class="security-note"><span>🔒</span> Admin access is protected by Firebase Authentication and Firestore security rules. Hiding this page is not the security boundary.</p>
+    </section>
+
+    <section id="dashboard-panel" class="dashboard-panel hidden">
+      <div class="dashboard-heading">
+        <div><p class="eyebrow eyebrow-left">PRIVATE ADMIN STUDIO</p><h1>Your <em>case files.</em></h1><p class="admin-intro">Add a message, shape your response, then publish it when you're ready.</p></div>
+        <button id="logout-button" class="secondary-button" type="button">Log out</button>
+      </div>
+      <div class="admin-stats">
+        <div><span id="total-count">0</span><small>Total chapters</small></div>
+        <div><span id="published-count">0</span><small>Published</small></div>
+        <div><span id="draft-count">0</span><small>Drafts</small></div>
+      </div>
+      <div class="admin-workspace">
+        <aside class="chapter-sidebar">
+          <div class="sidebar-title"><h2>Chapters</h2><button id="new-chapter" class="small-add" type="button">+ New</button></div>
+          <div id="admin-chapter-list" class="admin-chapter-list"></div>
+        </aside>
+        <section class="editor-panel">
+          <div class="editor-topline"><span id="editor-state">NEW CHAPTER</span><span id="saved-state"></span></div>
+          <form id="chapter-form" class="admin-form">
+            <input type="hidden" id="chapter-id">
+            <div class="form-row">
+              <label>Day number<input id="day" type="number" min="1" max="99" required placeholder="30"></label>
+              <label>Quality / topic<input id="quality" required maxlength="120" placeholder="The way you make me smile"></label>
+            </div>
+            <label>Case title<input id="case-title-input" required maxlength="150" placeholder="Madam, Mirror Ka Kaam Peeche Dekhna Tha!"></label>
+            <label>Geet's original message <span class="field-note">Paste her message exactly as she sent it.</span><textarea id="original-message" rows="7" required placeholder="Paste the full original message here…"></textarea></label>
+            <label>Court ka sawaal <span class="field-note">Cover the whole message, not just one incident.</span><textarea id="court-question" rows="4" required placeholder="A playful question that introduces your response…"></textarea></label>
+            <label>Aadi ka jawaab <span class="field-note">Your detailed, personal response.</span><textarea id="aadi-response" rows="12" required placeholder="Write your response here…"></textarea></label>
+            <div class="form-row">
+              <label>Final observation<textarea id="final-observation" rows="3" required placeholder="The memorable closing thought…"></textarea></label>
+              <label>Agli sunwai<textarea id="next-hearing" rows="3" required placeholder="A specific next moment or shared experience…"></textarea></label>
+            </div>
+            <div class="publish-row">
+              <label class="toggle-label"><input id="published" type="checkbox"><span class="toggle-ui"></span><span><strong>Publish this chapter</strong><small>Published chapters become visible on the public website.</small></span></label>
+            </div>
+            <div class="form-actions">
+              <button id="delete-chapter" class="danger-button hidden" type="button">Delete chapter</button>
+              <span class="actions-spacer"></span>
+              <button id="save-draft" class="secondary-button" type="button">Save draft</button>
+              <button id="save-publish" class="primary-button" type="submit">Save chapter</button>
+            </div>
+            <p id="editor-error" class="form-error" role="alert"></p>
+          </form>
+        </section>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer admin-footer"><a class="footer-brand" href="./">A <span>♥</span> G</a><p>Private admin studio · Dil Ki Adalat</p><a href="./">Public site ↗</a></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

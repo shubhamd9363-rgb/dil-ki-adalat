@@ -1,0 +1,18 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.uid == "REPLACE_WITH_YOUR_FIREBASE_AUTH_UID";
+    }
+
+    match /chapters/{chapterId} {
+      // Public visitors can read published chapters only.
+      // The administrator can read all chapters, including drafts.
+      allow read: if isAdmin() || resource.data.published == true;
+
+      // Only the administrator may create, update, or delete content.
+      allow create, update, delete: if isAdmin();
+    }
+  }
+}

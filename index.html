@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#702b3a">
+  <meta name="description" content="A personal collection of messages, replies, and memories from Aadi to Geet.">
+  <title>Dil Ki Adalat — Aadi & Geet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="topline"></div>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Dil Ki Adalat home">
+      <span class="brand-mark">A <span>&</span> G</span>
+      <span class="brand-copy"><strong>AADI & GEET</strong><small>A PERSONAL COLLECTION</small></span>
+    </a>
+    <a class="header-note" href="#story">22+ little chapters <span>♥</span></a>
+  </header>
+
+  <main id="app">
+    <section class="hero" id="home">
+      <div class="hero-ornament" aria-hidden="true"><span>✳</span><i></i><span>✳</span></div>
+      <p class="eyebrow"><span class="eyebrow-line"></span> A BIRTHDAY SURPRISE FROM AADI <span class="eyebrow-line"></span></p>
+      <h1>Dil Ki <em>Adalat</em></h1>
+      <p class="hero-names">Aadi <span>×</span> Geet</p>
+      <div class="hero-rule"><span>♥</span></div>
+      <p class="hero-message">Tumne mere birthday ke liye itne saare messages likhe.<br class="desktop-only"> Ab meri baari hai, Geet. ❤️</p>
+      <p class="hero-sub">Tumhari har baat ko dhyaan se padhkar, har message ka jawaab dil se.</p>
+      <a class="primary-button" href="#story">Open your surprise <span>↗</span></a>
+      <div class="hero-footnote"><span>22+ MESSAGES</span><span class="footnote-dot">•</span><span>ONE VERY PERSONAL STORY</span></div>
+    </section>
+
+    <section class="intro-strip" id="story">
+      <div class="intro-copy">
+        <p class="eyebrow eyebrow-left">THE STORY SO FAR</p>
+        <h2>You wrote the words.<br><em>Now here's my side.</em></h2>
+      </div>
+      <p class="intro-text">Har message mein tumne mere baare mein kuch aisa bataya jo tum notice karti ho aur jo tumhare liye matter karta hai. Main chahta tha ki tumhe har message ka jawaab sirf ek emoji se nahi, balki thoda aur dil se doon.</p>
+    </section>
+
+    <section class="archive-section">
+      <div class="section-heading">
+        <div><p class="eyebrow eyebrow-left">THE CASE FILES</p><h2>Every message. <em>Every reply.</em></h2></div>
+        <div class="chapter-count" id="chapter-count">Loading chapters…</div>
+      </div>
+      <div class="archive-toolbar">
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="chapter-search" type="search" placeholder="Find a quality or chapter…" aria-label="Search chapters"></label>
+        <div class="filter-label">IN THE ORDER SHE SENT THEM</div>
+      </div>
+      <div id="chapter-list" class="chapter-grid" aria-live="polite">
+        <div class="loading-state"><span class="loader"></span><p>Opening the case files…</p></div>
+      </div>
+      <div id="empty-state" class="empty-state hidden">No published chapters yet. The story is getting ready. ❤️</div>
+    </section>
+
+    <section class="closing-note">
+      <span class="closing-heart">♡</span>
+      <p class="eyebrow">A NOTE BEFORE YOU GO</p>
+      <h2>This is not the end<br>of <em>our story.</em></h2>
+      <p>Bas tumhare messages ka jawaab dene ki meri baari thi. Baaki memories toh abhi banaani hain. ❤️</p>
+      <button class="text-button" id="open-letter" type="button">Read a note from Aadi <span>→</span></button>
+    </section>
+  </main>
+
+  <section id="case-view" class="case-view hidden" aria-live="polite">
+    <div class="case-topnav"><a href="./#story" id="back-to-archive">← All case files</a><span id="case-position"></span></div>
+    <article class="case-article">
+      <p class="eyebrow" id="case-kicker">CASE FILE</p>
+      <h1 id="case-title"></h1>
+      <p class="case-subtitle" id="case-quality"></p>
+      <div class="case-divider"><span>✳</span></div>
+      <section class="original-message">
+        <div class="section-label"><span class="label-icon">“</span><span>GEET KA ASLI BAYaan</span></div>
+        <div id="case-original" class="original-copy"></div>
+      </section>
+      <section class="court-question">
+        <div class="section-label"><span class="label-icon">⚖</span><span>COURT KA SAWAAL</span></div>
+        <p id="case-question"></p>
+      </section>
+      <section class="aadi-response">
+        <div class="section-label"><span class="label-icon">♥</span><span>AADI KA JAWAAB</span></div>
+        <div id="case-response" class="response-copy"></div>
+      </section>
+      <section class="verdict">
+        <p class="verdict-label">⚖ DIL KI ADALAT KA FAISLA</p>
+        <h3>Final observation</h3>
+        <p id="case-observation" class="verdict-line"></p>
+        <div class="verdict-rule"></div>
+        <h3>Agli sunwai</h3>
+        <p id="case-next" class="verdict-line"></p>
+      </section>
+      <nav class="case-pagination" aria-label="Chapter navigation">
+        <button id="previous-case" type="button" class="secondary-button">← Previous case</button>
+        <button id="next-case" type="button" class="primary-button">Next case →</button>
+      </nav>
+    </article>
+  </section>
+
+  <section id="letter-view" class="letter-view hidden">
+    <a class="back-link" href="./#story">← Back to the story</a>
+    <div class="letter-card">
+      <p class="eyebrow">A LETTER FOR GEET</p>
+      <div class="letter-flower">✳</div>
+      <h1>Geet, <em>ek baat kehni thi.</em></h1>
+      <div id="letter-content" class="letter-content">
+        <p>Tumhare birthday messages ke jawaab mein ye chhota sa surprise banaya hai. Har message ke liye ek proper jawaab dena chahta tha—apne tareeke se, aur dil se.</p>
+        <p>Tumne jo baatein notice ki, unhe padhkar mujhe bhi samajhne ka mauka mila ki hamare chhote-chhote moments kitne special hain. Thank you for the time, thought and affection you put into every message.</p>
+        <p>Baaki kahaani abhi likhni hai. Aur usmein tumhare saath aur bhi bahut si memories banaani hain. ❤️</p>
+      </div>
+      <p class="letter-signoff">With love, <span>Aadi</span> ♥</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <a class="footer-brand" href="./">A <span>♥</span> G</a>
+    <p>Made with love, one message at a time.</p>
+    <a href="#home" class="back-top">Back to top ↑</a>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
