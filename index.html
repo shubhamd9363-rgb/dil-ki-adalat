@@ -18,7 +18,7 @@
       <span class="brand-mark">A <span>&</span> G</span>
       <span class="brand-copy"><strong>AADI & GEET</strong><small>A PERSONAL COLLECTION</small></span>
     </a>
-    <a class="header-note" href="#story">22+ little chapters <span>♥</span></a>
+    <a class="header-note" href="#story">30+ little chapters <span>♥</span></a>
   </header>
 
   <main id="app">
@@ -28,10 +28,10 @@
       <h1>Dil Ki <em>Adalat</em></h1>
       <p class="hero-names">Aadi <span>×</span> Geet</p>
       <div class="hero-rule"><span>♥</span></div>
-      <p class="hero-message">Tumne mere birthday ke liye itne saare messages likhe.<br class="desktop-only"> Ab meri baari hai, Geet. ❤️</p>
-      <p class="hero-sub">Tumhari har baat ko dhyaan se padhkar, har message ka jawaab dil se.</p>
+      <p class="hero-message">Aapne mere birthday ke liye itne saare messages likhe.<br class="desktop-only"> Ab meri baari hai, Geet. ❤️</p>
+      <p class="hero-sub">Aapki har baat ko dhyaan se padhkar, har message ka jawaab dil se.</p>
       <a class="primary-button" href="#story">Open your surprise <span>↗</span></a>
-      <div class="hero-footnote"><span>22+ MESSAGES</span><span class="footnote-dot">•</span><span>ONE VERY PERSONAL STORY</span></div>
+      <div class="hero-footnote"><span>30+ MESSAGES</span><span class="footnote-dot">•</span><span>ONE VERY PERSONAL STORY</span></div>
     </section>
 
     <section class="intro-strip" id="story">
@@ -39,7 +39,7 @@
         <p class="eyebrow eyebrow-left">THE STORY SO FAR</p>
         <h2>You wrote the words.<br><em>Now here's my side.</em></h2>
       </div>
-      <p class="intro-text">Har message mein tumne mere baare mein kuch aisa bataya jo tum notice karti ho aur jo tumhare liye matter karta hai. Main chahta tha ki tumhe har message ka jawaab sirf ek emoji se nahi, balki thoda aur dil se doon.</p>
+      <p class="intro-text">Har message mein aapne mere baare mein kuch aisa bataya jo aap notice karti hain aur jo aapke liye matter karta hai. Main chahta tha ki aapko har message ka jawaab sirf ek emoji se nahi, balki thoda aur dil se doon.</p>
     </section>
 
     <section class="archive-section">
@@ -61,18 +61,30 @@
       <span class="closing-heart">♡</span>
       <p class="eyebrow">A NOTE BEFORE YOU GO</p>
       <h2>This is not the end<br>of <em>our story.</em></h2>
-      <p>Bas tumhare messages ka jawaab dene ki meri baari thi. Baaki memories toh abhi banaani hain. ❤️</p>
+      <p>Bas aapke messages ka jawaab dene ki meri baari thi. Baaki memories toh abhi banaani hain. ❤️</p>
       <button class="text-button" id="open-letter" type="button">Read a note from Aadi <span>→</span></button>
     </section>
   </main>
 
   <section id="case-view" class="case-view hidden" aria-live="polite">
     <div class="case-topnav"><a href="./#story" id="back-to-archive">← All case files</a><span id="case-position"></span></div>
-    <article class="case-article">
-      <p class="eyebrow" id="case-kicker">CASE FILE</p>
-      <h1 id="case-title"></h1>
-      <p class="case-subtitle" id="case-quality"></p>
-      <div class="case-divider"><span>✳</span></div>
+    <article class="case-article" id="case-article" data-theme="burgundy">
+      <div class="case-hero-layout">
+        <div class="case-hero-copy">
+          <p class="eyebrow" id="case-kicker">CASE FILE</p>
+          <h1 id="case-title"></h1>
+          <p class="case-subtitle" id="case-quality"></p>
+          <div class="case-divider"><span>✳</span></div>
+          <p class="case-hero-note">A little piece of our story <span>♡</span></p>
+        </div>
+        <figure id="case-image-wrap" class="case-image-wrap hidden">
+          <img id="case-image" alt="A memory chosen for this chapter">
+          <figcaption id="case-image-caption" class="hidden"></figcaption>
+        </figure>
+        <div id="case-image-placeholder" class="case-image-placeholder" aria-hidden="true">
+          <span class="placeholder-scales">⚖</span><span class="placeholder-script">A case file of us</span><span class="placeholder-heart">♡</span>
+        </div>
+      </div>
       <section class="original-message">
         <div class="section-label"><span class="label-icon">“</span><span>GEET KA ASLI BAYaan</span></div>
         <div id="case-original" class="original-copy"></div>
@@ -86,12 +98,15 @@
         <div id="case-response" class="response-copy"></div>
       </section>
       <section class="verdict">
-        <p class="verdict-label">⚖ DIL KI ADALAT KA FAISLA</p>
-        <h3>Final observation</h3>
-        <p id="case-observation" class="verdict-line"></p>
-        <div class="verdict-rule"></div>
-        <h3>Agli sunwai</h3>
-        <p id="case-next" class="verdict-line"></p>
+        <div class="verdict-seal" aria-hidden="true"><span class="seal-icon">⚖</span><span class="seal-title">DIL KI ADALAT<br>KA FAISLA</span><span class="seal-heart">♡</span></div>
+        <div class="verdict-content">
+          <p class="verdict-label">⚖️ DIL KI ADALAT KA FAISLA</p>
+          <h3>💌 Final observation</h3>
+          <p id="case-observation" class="verdict-line"></p>
+          <div class="verdict-rule"><span>♡</span></div>
+          <h3>💭 Agli sunwai</h3>
+          <p id="case-next" class="verdict-line"></p>
+        </div>
       </section>
       <nav class="case-pagination" aria-label="Chapter navigation">
         <button id="previous-case" type="button" class="secondary-button">← Previous case</button>
@@ -107,9 +122,9 @@
       <div class="letter-flower">✳</div>
       <h1>Geet, <em>ek baat kehni thi.</em></h1>
       <div id="letter-content" class="letter-content">
-        <p>Tumhare birthday messages ke jawaab mein ye chhota sa surprise banaya hai. Har message ke liye ek proper jawaab dena chahta tha—apne tareeke se, aur dil se.</p>
-        <p>Tumne jo baatein notice ki, unhe padhkar mujhe bhi samajhne ka mauka mila ki hamare chhote-chhote moments kitne special hain. Thank you for the time, thought and affection you put into every message.</p>
-        <p>Baaki kahaani abhi likhni hai. Aur usmein tumhare saath aur bhi bahut si memories banaani hain. ❤️</p>
+        <p>Aapke birthday messages ke jawaab mein ye chhota sa surprise banaya hai. Har message ke liye ek proper jawaab dena chahta tha—apne tareeke se, aur dil se.</p>
+        <p>Aapne jo baatein notice ki, unhe padhkar mujhe bhi samajhne ka mauka mila ki hamare chhote-chhote moments kitne special hain. Thank you for the time, thought and affection you put into every message.</p>
+        <p>Baaki kahaani abhi likhni hai. Aur usmein aapke saath aur bhi bahut si memories banaani hain. ❤️</p>
       </div>
       <p class="letter-signoff">With love, <span>Aadi</span> ♥</p>
     </div>
