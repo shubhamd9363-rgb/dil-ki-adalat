@@ -22,7 +22,7 @@ button:disabled{opacity:.42;cursor:not-allowed}
 .brand-copy small{font-size:9px;color:var(--muted);letter-spacing:1.5px;margin-top:3px}
 .header-note{font-size:12px;color:var(--muted);letter-spacing:.3px}
 .header-note span{color:var(--burgundy);margin-left:5px}
-.hero{max-width:1100px;margin:0 auto;padding:70px 24px 76px;text-align:center;position:relative;overflow:hidden}
+.hero{max-width:1240px;margin:0 auto;padding:38px 24px 44px;text-align:center;position:relative;overflow:hidden}
 .hero-ornament{display:flex;justify-content:center;align-items:center;gap:18px;color:var(--gold);font-size:18px;margin:0 auto 20px}
 .hero-ornament i{height:1px;width:54px;background:var(--gold)}
 .eyebrow{font-size:10px;font-weight:700;letter-spacing:2.2px;color:var(--burgundy);margin:0 0 18px;line-height:1.5}
@@ -44,7 +44,7 @@ h1 em,h2 em{color:var(--burgundy);font-weight:500}
 .danger-button{background:#f8e9e7;color:#9b3030;border:1px solid #ebc8c3}
 .hero-footnote{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:34px;font-size:9px;letter-spacing:1.5px;color:#94877d}
 .footnote-dot{color:var(--gold)}
-.intro-strip{background:#f0e8dd;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:46px max(7vw,24px);display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.intro-strip{background:linear-gradient(115deg,#f0e8dd,#f8f1e8);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:32px max(7vw,24px);display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
 .eyebrow-left{margin-bottom:12px}
 .intro-strip h2,.section-heading h2,.closing-note h2{font-family:"Playfair Display",serif;font-size:clamp(28px,4vw,42px);font-weight:500;line-height:1.22;margin:0;letter-spacing:-.7px}
 .intro-text{max-width:560px;font-size:14px;line-height:1.9;color:#635850;margin:0}
@@ -188,7 +188,7 @@ h1 em,h2 em{color:var(--burgundy);font-weight:500}
  .brand-copy strong{font-size:10px;letter-spacing:1.3px}
  .brand-copy small{font-size:8px;letter-spacing:1px}
  .header-note{font-size:10px}
- .hero{padding:55px 20px 57px}
+ .hero{padding:38px 20px 40px}
  .hero h1{font-size:53px;letter-spacing:-1.5px}
  .hero-message br{display:none}
  .hero-footnote{font-size:8px;letter-spacing:1px;gap:7px}
