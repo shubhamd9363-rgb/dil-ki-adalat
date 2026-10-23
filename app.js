@@ -66,6 +66,22 @@
     if (index < 0 || index >= chapters.length) return;
     activeIndex = index;
     const c = chapters[index];
+    const article = $("case-article");
+    const palettes = ["burgundy", "rose", "sage", "midnight", "champagne", "plum"];
+    article.dataset.theme = palettes[Math.abs(Number(c.day || index)) % palettes.length];
+    const imageWrap = $("case-image-wrap");
+    const imagePlaceholder = $("case-image-placeholder");
+    if (c.imageData) {
+      $("case-image").src = c.imageData;
+      imageWrap.classList.remove("hidden");
+      imagePlaceholder.classList.add("hidden");
+      if (c.imageCaption) { $("case-image-caption").textContent = c.imageCaption; $("case-image-caption").classList.remove("hidden"); }
+      else { $("case-image-caption").textContent = ""; $("case-image-caption").classList.add("hidden"); }
+      $("case-image").alt = c.imageAlt || `Image for Day ${c.day}: ${c.caseTitle || c.quality || "Dil Ki Adalat"}`;
+    } else {
+      imageWrap.classList.add("hidden");
+      imagePlaceholder.classList.remove("hidden");
+    }
     appRoot.classList.add("hidden");
     letterView.classList.add("hidden");
     caseView.classList.remove("hidden");
