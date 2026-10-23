@@ -377,3 +377,216 @@ h1 em,h2 em{color:var(--burgundy);font-weight:500}
   .hero-image-frame { aspect-ratio:4 / 3; max-height:none; }
   .hero-image-note { right:0; font-size:11px; }
 }
+
+
+/* Alignment refinement: calmer typography, balanced columns, compact visual */
+.hero-redesigned {
+  max-width: 1320px;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 0.82fr);
+  gap: clamp(34px, 4vw, 58px);
+  padding: 42px clamp(28px, 4vw, 58px) 46px;
+  align-items: center;
+}
+
+.hero-copy {
+  max-width: 590px;
+  margin-inline: auto;
+}
+
+.hero-redesigned .hero-ornament {
+  margin-bottom: 16px;
+}
+
+.hero-redesigned .eyebrow {
+  font-size: 9px;
+  letter-spacing: 1.7px;
+  margin-bottom: 13px;
+}
+
+.hero-redesigned h1 {
+  font-size: clamp(44px, 4.6vw, 66px);
+  letter-spacing: -1.7px;
+  line-height: 1.08;
+}
+
+.hero-redesigned .hero-names {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.hero-redesigned .hero-rule {
+  margin: 17px 0;
+}
+
+.hero-redesigned .hero-message {
+  max-width: 520px;
+  font-size: clamp(18px, 1.65vw, 22px);
+  line-height: 1.5;
+  margin-bottom: 10px;
+  text-wrap: pretty;
+}
+
+.hero-redesigned .hero-message br {
+  display: none;
+}
+
+.hero-redesigned .hero-sub {
+  max-width: 450px;
+  font-size: 12px;
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+.hero-redesigned .primary-button {
+  min-height: 46px;
+  padding: 11px 17px;
+}
+
+.hero-redesigned .hero-footnote {
+  margin-top: 19px;
+  font-size: 8px;
+  letter-spacing: 1.2px;
+  gap: 8px;
+}
+
+.hero-visual {
+  width: 100%;
+  max-width: 490px;
+  justify-self: center;
+  padding: 8px 8px 18px;
+}
+
+.hero-image-frame {
+  aspect-ratio: 1 / 1;
+  max-height: 450px;
+  padding: 8px;
+}
+
+.hero-image-frame:after {
+  inset: 8px;
+}
+
+.hero-image-placeholder {
+  inset: 8px;
+  outline-offset: -16px;
+  gap: 11px;
+}
+
+.placeholder-ornament {
+  font-size: 25px;
+}
+
+.placeholder-title {
+  font-size: clamp(27px, 2.6vw, 36px);
+}
+
+.placeholder-subtitle {
+  font-size: 8px;
+  letter-spacing: 1.6px;
+}
+
+.placeholder-heart {
+  font-size: 23px;
+}
+
+.hero-image-caption {
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  font-size: 15px;
+  padding: 30px 16px 15px;
+}
+
+.hero-image-note {
+  right: 0;
+  bottom: 0;
+  padding: 8px 12px;
+  font-size: 11px;
+}
+
+.intro-strip {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  gap: clamp(24px, 4vw, 48px);
+}
+
+.intro-strip h2 {
+  font-size: clamp(27px, 3vw, 37px);
+}
+
+.intro-text {
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+@media (min-width: 1400px) {
+  .hero-redesigned {
+    padding-top: 36px;
+    padding-bottom: 40px;
+  }
+}
+
+@media (max-width: 850px) {
+  .hero-redesigned {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, .82fr);
+    gap: 22px;
+    padding: 34px 22px 38px;
+  }
+
+  .hero-redesigned h1 {
+    font-size: clamp(40px, 5.3vw, 52px);
+  }
+
+  .hero-redesigned .hero-message {
+    font-size: 18px;
+  }
+
+  .hero-visual {
+    max-width: 380px;
+  }
+}
+
+@media (max-width: 650px) {
+  .hero-redesigned {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 30px 20px 34px;
+    text-align: center;
+  }
+
+  .hero-copy {
+    max-width: 520px;
+  }
+
+  .hero-redesigned .hero-ornament,
+  .hero-redesigned .hero-rule {
+    justify-content: center;
+  }
+
+  .hero-redesigned h1 {
+    font-size: clamp(42px, 11vw, 54px);
+  }
+
+  .hero-redesigned .hero-message,
+  .hero-redesigned .hero-sub {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-redesigned .hero-footnote {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    max-width: 430px;
+  }
+
+  .hero-image-frame {
+    aspect-ratio: 4 / 3;
+    max-height: none;
+  }
+
+  .intro-strip {
+    padding: 28px 22px;
+  }
+}
