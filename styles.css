@@ -1003,3 +1003,34 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .hero-art-monogram { top: 25px; right: 25px; }
   .hero-typographic-art .hero-image-note { right: 0; }
 }
+
+
+/* Center the "Read a note from Aadi" link inside a bordered box */
+a[href*="note"],
+a[href*="letter"],
+.text-button {
+  box-sizing: border-box;
+}
+
+/* Note button styling — adjust the selector to match your existing link */
+.note-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: fit-content;
+  min-height: 48px;
+  padding: 12px 24px;
+  margin: 0 auto;
+  border: 1px solid #D9A6AE;
+  border-radius: 8px;
+  background-color: #FFF5F0;
+  color: #783C50;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.note-link:hover {
+  background-color: #D9A6AE;
+  border-color: #783C50;
+}
