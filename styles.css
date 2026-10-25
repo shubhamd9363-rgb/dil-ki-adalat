@@ -78,8 +78,43 @@ h1 em,h2 em{color:var(--burgundy);font-weight:500}
 .closing-note h2{font-size:clamp(32px,4vw,47px)}
 .closing-note h2 em{color:#d9b9b6}
 .closing-note>p:not(.eyebrow){font-size:13px;color:#e2d0cb;max-width:480px;margin:18px auto 20px}
-.text-button{border:0;background:transparent;color:#f4dfc1;font-weight:600;font-size:12px;padding:12px}
-.text-button span{margin-left:8px}
+/* Highlight the Read a note from Aadi button */
+button#open-letter.text-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: fit-content;
+  min-width: 280px;
+  min-height: 50px;
+  margin: 18px auto 0;
+  padding: 14px 24px;
+  background-color: #783C50;
+  color: #FFF5F0;
+  border: 2px solid #D9A6AE;
+  border-radius: 8px;
+  text-align: center;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 3px 12px rgba(120, 60, 80, 0.18);
+  transition: background-color 0.2s ease,
+              color 0.2s ease,
+              border-color 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+button#open-letter.text-button:hover {
+  background-color: #D9A6AE;
+  color: #35111D;
+  border-color: #783C50;
+  box-shadow: 0 5px 16px rgba(120, 60, 80, 0.25);
+}
+
+button#open-letter.text-button:focus-visible {
+  outline: 3px solid #D9A6AE;
+  outline-offset: 4px;
+}
 .site-footer{max-width:1180px;margin:auto;padding:24px 30px;display:flex;align-items:center;justify-content:space-between;gap:18px;color:var(--muted);font-size:10px}
 .footer-brand{font-family:var(--font-display);font-size:18px;color:var(--burgundy)}
 .footer-brand span{font-size:11px;color:var(--gold)}
